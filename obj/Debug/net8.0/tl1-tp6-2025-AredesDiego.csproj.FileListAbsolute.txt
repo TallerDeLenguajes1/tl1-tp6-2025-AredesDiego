@@ -1,0 +1,15 @@
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\bin\Debug\net8.0\tl1-tp6-2025-AredesDiego.exe
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\bin\Debug\net8.0\tl1-tp6-2025-AredesDiego.deps.json
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\bin\Debug\net8.0\tl1-tp6-2025-AredesDiego.runtimeconfig.json
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\bin\Debug\net8.0\tl1-tp6-2025-AredesDiego.dll
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\bin\Debug\net8.0\tl1-tp6-2025-AredesDiego.pdb
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.GeneratedMSBuildEditorConfig.editorconfig
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.AssemblyInfoInputs.cache
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.AssemblyInfo.cs
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.csproj.CoreCompileInputs.cache
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.sourcelink.json
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.dll
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\refint\tl1-tp6-2025-AredesDiego.dll
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.pdb
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\tl1-tp6-2025-AredesDiego.genruntimeconfig.cache
+I:\Materias de la Facultad\Segundo año\Primer cuatrimestre\Taller de lenguajes1 2025\Tp6\tl1-tp6-2025-AredesDiego\obj\Debug\net8.0\ref\tl1-tp6-2025-AredesDiego.dll
