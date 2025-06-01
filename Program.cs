@@ -1,4 +1,7 @@
-﻿int eleccion;
+﻿using System.Text.RegularExpressions;
+
+int eleccion;
+double resultado = 0;
 
 do
 {
@@ -18,8 +21,23 @@ do
         continue;
     }
 
-    Console.WriteLine("-1 Sumar \n-2 Restar \n-3 Multiplicar \n-4 Dividir \n-5 Valor Absoluto \n-6 Cuadrado \n-7 raizCuadrada \n-8 seno \n-9 coseno \n-10 parteEnteraDeTipoFloat \n-0 Salir");
-                            
+    Console.WriteLine(
+        "-1 Sumar\n" +
+        "-2 Restar\n" +
+        "-3 Multiplicar\n" +
+        "-4 Dividir\n" +
+        "-5 Valor Absoluto\n" +
+        "-6 Cuadrado\n" +
+        "-7 Raíz Cuadrada\n" +
+        "-8 Seno\n" +
+        "-9 Coseno\n" +
+        "-10 Parte Entera de Tipo Float\n" +
+        "-11 Máximo\n" +
+        "-12 Mínimo\n" +
+        "-13 Buscar ocurrencia de una palabra\n" +
+        "-0 Salir"
+    );
+
     string? decision = Console.ReadLine();
     if (!int.TryParse(decision, out eleccion))
     {
@@ -27,7 +45,7 @@ do
         continue;
     }
 
-    double resultado = 0;
+    resultado = 0;
 
     switch (eleccion)
     {
@@ -59,9 +77,17 @@ do
             resultado = coseno(a);
             break;
         case 10:
-            resultado = (int)parteEnteraDeTipoFloat(a);
+            resultado = parteEnteraDeTipoFloat(a);
             break;
-
+        case 11:
+            resultado = maximo((int)a, (int)b);
+            break;
+        case 12:
+            resultado = minimo((int)a, (int)b);
+            break;
+        case 13:
+            BuscarOcurrenciaDePalabra();
+            break;
         case 0:
             Console.WriteLine("Saliendo...");
             return;
@@ -70,7 +96,9 @@ do
             continue;
     }
 
-    Console.WriteLine($"Resultado: {resultado}");
+    if (eleccion >= 1 && eleccion <= 12)
+        Console.WriteLine($"Resultado: {resultado}");
+
     Console.WriteLine("Presione cualquier tecla para continuar o '0' para salir.");
     string? salir = Console.ReadLine();
     if (salir == "0")
@@ -78,75 +106,147 @@ do
 
 } while (true);
 
+// Texto - Ejercicio adicional
+Console.Write("Ponga su texto: ");
+string? texto = Console.ReadLine();
+Console.WriteLine($"La longitud de su texto: {texto.Length}");
 
-double Sumar(double a , double b)
-{
-    return a + b;
-}
-double Restar(double a , double b)
-{
-    return a - b;
-}
-double Multiplicar(double a , double b)
-{
-    return a * b;
-}
-double Dividir(double a , double b)
-{
-    return a / b;
-}
+string sub_cadena = texto.Substring(0, Math.Min(5, texto.Length));
+Console.WriteLine($"Una subcadena de su texto es: {sub_cadena}");
 
-double valorAbsoluto(double numero)
+Console.Write("Ponga su segundo texto: ");
+string? segundo_texto = Console.ReadLine();
+Console.WriteLine($"Sus textos concatenados son: {texto}{segundo_texto}");
+
+Console.WriteLine($"La suma de num1 y num2 es: {resultado}");
+
+foreach (var item in segundo_texto)
 {
-    return Math.Abs(numero);
+    Console.Write(item + " ");
 }
-double cuadrado(double numero)
+Console.WriteLine();
+
+Console.WriteLine($"El segundo texto en minuscula:" + segundo_texto.ToLower());
+Console.WriteLine($"El segundo texto en Mayuscula:" + segundo_texto.ToUpper());
+
+Console.WriteLine("Ingrese una cadena con valores separados por un carácter (por ejemplo: 'uno,dos,tres'):");
+
+string? cadena = Console.ReadLine();
+
+Console.WriteLine("Ingrese el carácter separador (por ejemplo: ','):");
+string? separadorInput = Console.ReadLine();
+
+if (string.IsNullOrEmpty(cadena) || string.IsNullOrEmpty(separadorInput) || separadorInput.Length != 1)
 {
-    return numero * numero;
+    Console.WriteLine("Cadena o separador no válidos.");
 }
-double raizCuadrada(double numero)
+else
 {
-    return Math.Sqrt(numero);
-}
-double seno(double numero)
-{
-    return Math.Sin(numero);
-}
-double coseno(double numero)
-{
-    return Math.Cos(numero);
-}
-double parteEnteraDeTipoFloat(double numero)
-{
-    return (int)Math.Floor(numero);
-}
-double maximo(double a, double b)
-{
-    if (a > b)
-        return a;
-    return b;
-}
-double minimo(double a, double b)
-{
-    if (a > b)
-        return a;
-    return b;
+    char separador = separadorInput[0];
+    string[] partes = cadena.Split(separador);
+
+    Console.WriteLine("\nResultado de la separación:");
+    foreach (string parte in partes)
+    {
+        Console.WriteLine(parte.Trim());
+    }
 }
 
-Console.WriteLine("Ingrese el Primer número:");
-string? entrada3 = Console.ReadLine();
-if (!int.TryParse(entrada3, out int c))
+Console.WriteLine("Ingrese una ecuación simple (por ejemplo: 582+2):");
+string? ecuacion = Console.ReadLine();
+
+if (string.IsNullOrEmpty(ecuacion))
 {
-    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
+    Console.WriteLine("No ingresó nada.");
+    return;
 }
 
-Console.WriteLine("Ingrese el segundo número:");
-string? entrada4 = Console.ReadLine();
-if (!int.TryParse(entrada4, out int d))
+// Detectamos el operador
+char[] operadores = { '+', '-', '*', '/' };
+char operador = ' ';
+int pos = -1;
+
+foreach (char op in operadores)
 {
-    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
+    pos = ecuacion.IndexOf(op);
+    if (pos != -1)
+    {
+        operador = op;
+        break;
+    }
 }
 
-Console.WriteLine("Su numero maximo es:" + maximo(c,d));
-Console.WriteLine("Su numero maximo es:" + minimo(c,d));
+if (pos == -1)
+{
+    Console.WriteLine("No se encontró un operador válido (+, -, *, /).");
+    return;
+}
 
+// Separamos los operandos
+string parte1 = ecuacion.Substring(0, pos).Trim();
+string parte2 = ecuacion.Substring(pos + 1).Trim();
+
+// Convertimos los operandos
+if (double.TryParse(parte1, out double num1) && double.TryParse(parte2, out double num2))
+{
+    resultado = 0;
+
+    switch (operador)
+    {
+        case '+':
+            resultado = num1 + num2;
+            break;
+        case '-':
+            resultado = num1 - num2;
+            break;
+        case '*':
+            resultado = num1 * num2;
+            break;
+        case '/':
+            if (num2 == 0)
+            {
+                Console.WriteLine("Error: No se puede dividir por cero.");
+                return;
+            }
+            resultado = num1 / num2;
+            break;
+    }
+
+    Console.WriteLine($"Resultado: {resultado}");
+}
+else
+    {
+        Console.WriteLine("No se pudieron convertir los números.");
+    }
+
+static double Sumar(double a, double b) => a + b;
+static double Restar(double a, double b) => a - b;
+static double Multiplicar(double a, double b) => a * b;
+static double Dividir(double a, double b) => b != 0 ? a / b : 0;
+static double valorAbsoluto(double n) => Math.Abs(n);
+static double cuadrado(double n) => n * n;
+static double raizCuadrada(double n) => Math.Sqrt(n);
+static double seno(double n) => Math.Sin(n);
+static double coseno(double n) => Math.Cos(n);
+static double parteEnteraDeTipoFloat(double n) => Math.Floor(n);
+static int maximo(int a, int b) => a > b ? a : b;
+static int minimo(int a, int b) => a < b ? a : b;
+static void BuscarOcurrenciaDePalabra()
+    {
+        Console.Write("Ingrese el texto donde buscar: ");
+        string? texto = Console.ReadLine();
+
+        Console.Write("Ingrese la palabra a buscar: ");
+        string? palabra = Console.ReadLine();
+
+        if (string.IsNullOrEmpty(texto) || string.IsNullOrEmpty(palabra))
+        {
+            Console.WriteLine("Texto o palabra inválida.");
+            return;
+        }
+
+        int ocurrencias = Regex.Matches(texto, $@"\b{Regex.Escape(palabra)}\b", RegexOptions.IgnoreCase).Count;
+        Console.WriteLine($"La palabra '{palabra}' aparece {ocurrencias} veces.");
+    }
+
+    
