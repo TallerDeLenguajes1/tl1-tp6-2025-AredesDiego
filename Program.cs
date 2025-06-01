@@ -4,7 +4,7 @@ do
 {
     Console.WriteLine("Ingrese el primer número:");
     string? entrada1 = Console.ReadLine();
-    if (!int.TryParse(entrada1, out int a))
+    if (!double.TryParse(entrada1, out double a))
     {
         Console.WriteLine("Entrada no válida. Intente de nuevo.");
         continue;
@@ -12,13 +12,14 @@ do
 
     Console.WriteLine("Ingrese el segundo número:");
     string? entrada2 = Console.ReadLine();
-    if (!int.TryParse(entrada2, out int b))
+    if (!double.TryParse(entrada2, out double b))
     {
         Console.WriteLine("Entrada no válida. Intente de nuevo.");
         continue;
     }
 
-    Console.WriteLine("-1 Sumar \n-2 Restar \n-3 Multiplicar \n-4 Dividir \n-0 Salir");
+    Console.WriteLine("-1 Sumar \n-2 Restar \n-3 Multiplicar \n-4 Dividir \n-5 Valor Absoluto \n-6 Cuadrado \n-7 raizCuadrada \n-8 seno \n-9 coseno \n-10 parteEnteraDeTipoFloat \n-0 Salir");
+                            
     string? decision = Console.ReadLine();
     if (!int.TryParse(decision, out eleccion))
     {
@@ -26,7 +27,7 @@ do
         continue;
     }
 
-    int resultado = 0;
+    double resultado = 0;
 
     switch (eleccion)
     {
@@ -42,6 +43,25 @@ do
         case 4:
             resultado = Dividir(a, b);
             break;
+        case 5:
+            resultado = valorAbsoluto(a);
+            break;
+        case 6:
+            resultado = cuadrado(a);
+            break;
+        case 7:
+            resultado = raizCuadrada(a);
+            break;
+        case 8:
+            resultado = seno(a);
+            break;
+        case 9:
+            resultado = coseno(a);
+            break;
+        case 10:
+            resultado = (int)parteEnteraDeTipoFloat(a);
+            break;
+
         case 0:
             Console.WriteLine("Saliendo...");
             return;
@@ -59,58 +79,22 @@ do
 } while (true);
 
 
-int Sumar(int a , int b)
+double Sumar(double a , double b)
 {
     return a + b;
 }
-int Restar(int a , int b)
+double Restar(double a , double b)
 {
     return a - b;
 }
-int Multiplicar(int a , int b)
+double Multiplicar(double a , double b)
 {
     return a * b;
 }
-int Dividir(int a , int b)
+double Dividir(double a , double b)
 {
     return a / b;
 }
-
-
-Console.WriteLine("-1 Sumar \n-2 Restar \n-3 Multiplicar \n-4 Dividir \n-0 Salir \n Ponga su respuesta:");
-string? entrada = Console.ReadLine();
-
-if (!int.TryParse(entrada, out int numero))
-{
-    Console.WriteLine("\nEntrada no válida. Intente de nuevo.\n");
-}
-    
-Console.WriteLine("Ingrese el número:");
-string? entrada2 = Console.ReadLine();
-
-if (!int.TryParse(entrada2, out int b))
-{
-    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
-}
-
-Console.WriteLine("Ingrese el Primer número:");
-string? entrada3 = Console.ReadLine();
-
-if (!int.TryParse(entrada3, out int c))
-{
-    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
-}
-
-Console.WriteLine("Ingrese el segundo número:");
-string? entrada4 = Console.ReadLine();
-
-if (!int.TryParse(entrada4, out int d))
-{
-    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
-}
-
-Console.WriteLine("Su numero maximo es:" + maximo(c,d));
-Console.WriteLine("Su numero maximo es:" + minimo(c,d));
 
 double valorAbsoluto(double numero)
 {
@@ -132,19 +116,37 @@ double coseno(double numero)
 {
     return Math.Cos(numero);
 }
-int parteEnteraDeTipoFloat(double numero)
+double parteEnteraDeTipoFloat(double numero)
 {
     return (int)Math.Floor(numero);
 }
-int maximo(int a, int b)
+double maximo(double a, double b)
 {
     if (a > b)
         return a;
     return b;
 }
-int minimo(int a, int b)
+double minimo(double a, double b)
 {
     if (a > b)
         return a;
     return b;
 }
+
+Console.WriteLine("Ingrese el Primer número:");
+string? entrada3 = Console.ReadLine();
+if (!int.TryParse(entrada3, out int c))
+{
+    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
+}
+
+Console.WriteLine("Ingrese el segundo número:");
+string? entrada4 = Console.ReadLine();
+if (!int.TryParse(entrada4, out int d))
+{
+    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
+}
+
+Console.WriteLine("Su numero maximo es:" + maximo(c,d));
+Console.WriteLine("Su numero maximo es:" + minimo(c,d));
+
