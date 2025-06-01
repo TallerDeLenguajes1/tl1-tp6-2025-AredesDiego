@@ -31,12 +31,32 @@ if (!int.TryParse(entrada, out int numero))
     Console.WriteLine("\nEntrada no válida. Intente de nuevo.\n");
 }
     
-Console.WriteLine("Ingrese el segundo número:");
+Console.WriteLine("Ingrese el número:");
 string? entrada2 = Console.ReadLine();
+
 if (!int.TryParse(entrada2, out int b))
 {
     Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
 }
+
+Console.WriteLine("Ingrese el Primer número:");
+string? entrada3 = Console.ReadLine();
+
+if (!int.TryParse(entrada3, out int c))
+{
+    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
+}
+
+Console.WriteLine("Ingrese el segundo número:");
+string? entrada4 = Console.ReadLine();
+
+if (!int.TryParse(entrada4, out int d))
+{
+    Console.WriteLine("Entrada no válida. Intente de nuevo.\n");
+}
+
+Console.WriteLine("Su numero maximo es:" + maximo(c,d));
+Console.WriteLine("Su numero maximo es:" + minimo(c,d));
 
 double valorAbsoluto(double numero)
 {
@@ -66,4 +86,17 @@ double coseno(double numero)
 int parteEnteraDeTipoFloat(double numero)
 {
     return (int)Math.Floor(numero);
+}
+
+int maximo(int a, int b)
+{
+    if (a > b)
+        return a;
+    return b;
+}
+int minimo(int a, int b)
+{
+    if (a > b)
+        return a;
+    return b;
 }
