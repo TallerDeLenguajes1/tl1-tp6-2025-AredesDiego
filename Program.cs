@@ -62,32 +62,26 @@ double valorAbsoluto(double numero)
 {
     return Math.Abs(numero);
 }
-
 double cuadrado(double numero)
 {
     return numero * numero;
 }
-
 double raizCuadrada(double numero)
 {
     return Math.Sqrt(numero);
 }
-
 double seno(double numero)
 {
     return Math.Sin(numero);
 }
-
 double coseno(double numero)
 {
     return Math.Cos(numero);
 }
-
 int parteEnteraDeTipoFloat(double numero)
 {
     return (int)Math.Floor(numero);
 }
-
 int maximo(int a, int b)
 {
     if (a > b)
