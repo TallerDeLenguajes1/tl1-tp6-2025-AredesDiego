@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+﻿/* using System.Text.RegularExpressions;
 
 int eleccion;
 double resultado = 0;
@@ -106,7 +106,6 @@ do
 
 } while (true);
 
-// Texto - Ejercicio adicional
 Console.Write("Ponga su texto: ");
 string? texto = Console.ReadLine();
 Console.WriteLine($"La longitud de su texto: {texto.Length}");
@@ -161,7 +160,7 @@ if (string.IsNullOrEmpty(ecuacion))
     return;
 }
 
-// Detectamos el operador
+
 char[] operadores = { '+', '-', '*', '/' };
 char operador = ' ';
 int pos = -1;
@@ -182,11 +181,9 @@ if (pos == -1)
     return;
 }
 
-// Separamos los operandos
 string parte1 = ecuacion.Substring(0, pos).Trim();
 string parte2 = ecuacion.Substring(pos + 1).Trim();
 
-// Convertimos los operandos
 if (double.TryParse(parte1, out double num1) && double.TryParse(parte2, out double num2))
 {
     resultado = 0;
@@ -248,5 +245,70 @@ static void BuscarOcurrenciaDePalabra()
         int ocurrencias = Regex.Matches(texto, $@"\b{Regex.Escape(palabra)}\b", RegexOptions.IgnoreCase).Count;
         Console.WriteLine($"La palabra '{palabra}' aparece {ocurrencias} veces.");
     }
+*/
 
+//Ejercicio 5 
+
+using System;
+using System.Text.RegularExpressions;
+
+Console.WriteLine("VALIDADOR SIMPLE DE URL Y EMAIL");
+Console.WriteLine("-------------------------------");
+
+while (true)
+{
+    Console.WriteLine("\n¿Qué deseas validar?");
+    Console.WriteLine("1. Dirección web (URL)");
+    Console.WriteLine("2. Email");
+    Console.WriteLine("3. Salir");
+    Console.Write("Elige una opción (1-3): ");
     
+    string opcion = Console.ReadLine();
+    
+    if (opcion == "1")
+    {
+        ValidarURL();
+    }
+    else if (opcion == "2")
+    {
+        ValidarEmail();
+    }
+    else if (opcion == "3")
+    {
+        break;
+    }
+    else
+    {
+        Console.WriteLine("Opción no válida. Intente de nuevo.");
+    }
+}
+
+static void ValidarURL()
+{
+Console.Write("\nIngresa una URL: ");
+string url = Console.ReadLine();
+
+// Patrón para URLs (http/https opcional)
+bool esValida = Regex.IsMatch(url, 
+    @"^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$", 
+    RegexOptions.IgnoreCase);
+
+MostrarResultado(url, esValida, "dirección web");
+}
+static void ValidarEmail()
+{
+Console.Write("\nIngresa un email: ");
+string email = Console.ReadLine();
+
+// Patrón básico para emails
+bool esValido = Regex.IsMatch(email, 
+    @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+
+MostrarResultado(email, esValido, "email");
+}
+static void MostrarResultado(string entrada, bool esValido, string tipo)
+{
+Console.WriteLine(esValido
+    ? $"✔ '{entrada}' es un {tipo} válido."
+    : $"✖ '{entrada}' NO es un {tipo} válido.");
+}
