@@ -1,5 +1,9 @@
 *.Csharp
 *.VisualStudioCode
 *.DotnetCore
-/obj/
-/bin/
+bin/
+obj/
+.vscode/
+*.dll
+*.exe
+
