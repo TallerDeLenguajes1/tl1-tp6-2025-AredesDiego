@@ -3,3 +3,4 @@
 *.DotnetCore
 obj/
 bin/
+.vscode/
